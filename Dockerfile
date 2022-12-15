@@ -1,5 +1,10 @@
 FROM smartcontract/chainlink:1.11.0
 
+RUN addgroup --g 1000 groupcontainer
+RUN adduser -u 1000 -G groupcontainer -h /home/containeruser -D containeruser
+
+USER containeruser
+
 # Create the chainlink node root path
 RUN mkdir /chainlink
 
@@ -16,6 +21,6 @@ ARG WALLET_PASSWORD="PA@SSword1234!567"
 ENV WALLET_PASSWORD=$WALLET_PASSWORD
 
 # Create chainlink node required values to initialize with
-RUN echo $API_USER_EMAIL > /chainlink/.api
-RUN echo $API_USER_PASSWORD >> /chainlink/.api
-RUN echo $WALLET_PASSWORD > /chainlink/.password
+RUN echo $API_USER_EMAIL > /home/containeruser/chainlink/.api
+RUN echo $API_USER_PASSWORD >> /home/containeruser/chainlink/.api
+RUN echo $WALLET_PASSWORD > /home/containeruser/chainlink/.password
