@@ -10,7 +10,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
   chainlink:
-    image: smartcontract/chainlink:1.11.0
+    build: .
     env_file:
       - chainlink.env
     command: local node -p ~/chainlink/.password -a ~/chainlink/.api
