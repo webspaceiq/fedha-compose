@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ~/.chainlink-goerli:~/chainlink
+      - ~/.chainlink-goerli:/chainlink
 
 volumes:
   db-data:
