@@ -13,7 +13,7 @@ services:
     image: smartcontract/chainlink:1.11.0
     env_file:
       - chainlink.env
-    command: chainlink local node
+    command: local node -p ~/chainlink/.password -a ~/chainlink/.api
     restart: on-failure
     ports:
       - 6688:6688
@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ~/.chainlink-goerli:/chainlink
+      - ~/.chainlink-goerli:~/chainlink
 
 volumes:
   db-data:
