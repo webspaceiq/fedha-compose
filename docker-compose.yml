@@ -10,10 +10,10 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
   chainlink:
-    build: .
+    image: smartcontract/chainlink:1.11.0
     env_file:
       - chainlink.env
-    command: local node -p ~/chainlink/.password -a ~/chainlink/.api
+    command: local node -p /chainlink/.password -a /chainlink/.api
     restart: on-failure
     ports:
       - 6688:6688
