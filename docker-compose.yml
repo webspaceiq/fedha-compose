@@ -13,7 +13,7 @@ services:
     image: smartcontract/chainlink:1.11.0
     env_file:
       - chainlink.env
-    command: local node -p /chainlink/.password -a /chainlink/.api
+    command: chainlink local node
     restart: on-failure
     ports:
       - 6688:6688
