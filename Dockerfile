@@ -3,7 +3,7 @@ FROM smartcontract/chainlink:1.11.0
 USER root
 
 RUN addgroup -gid 1000 groupcontainer
-RUN adduser -uid 1000 -group groupcontainer -home /home/containeruser --disabled-password containeruser
+RUN adduser -uid 1000 --group groupcontainer --home /home/containeruser --disabled-password containeruser
 
 USER containeruser
 
