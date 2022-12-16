@@ -1,12 +1,12 @@
 FROM smartcontract/chainlink:1.11.0
 
-RUN addgroup --g 1000 groupcontainer
-RUN adduser -u 1000 -G groupcontainer -h /home/containeruser -D containeruser
+RUN addgroup 1000 groupcontainer
+RUN adduser -uid 1000 -group groupcontainer -home /home/containeruser --disabled-password containeruser
 
 USER containeruser
 
 # Create the chainlink node root path
-RUN mkdir /chainlink
+RUN mkdir /home/containeruser/chainlink
 
 # Arg for api user email, with default value
 ARG API_USER_EMAIL="tech.dev@webspaceiq.com"
