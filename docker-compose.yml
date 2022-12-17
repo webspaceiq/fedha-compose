@@ -13,7 +13,7 @@ services:
     build: .
     env_file:
       - chainlink.env
-    command: local node -p /chainlink/.password -a /chainlink/.api
+    command: local node -p /chainlink-config/.password -a /chainlink-config/.api
     restart: on-failure
     ports:
       - 6688:6688
@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ~/.chainlink-goerli:/chainlink
+      - ~/.chainlink-ropsten:/chainlink
 
 volumes:
   db-data:
